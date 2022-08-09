@@ -20,11 +20,9 @@ function onFormInput(event) {
 
 function onFormSubmit(event) {
   event.preventDefault();
-  const savedFeedback = localStorage.getItem(LOCALSTORAGE_KEY);
-  if (savedFeedback) {
-    const parsedFeedback = JSON.parse(savedFeedback);
-    console.log(parsedFeedback);
-  }
+
+  console.log(feedback);
+  feedback = {};
   event.target.reset();
   localStorage.removeItem(LOCALSTORAGE_KEY);
 }
@@ -32,7 +30,6 @@ function onFormSubmit(event) {
 function loadSavedMessage() {
   const savedFeedback = localStorage.getItem(LOCALSTORAGE_KEY);
   if (!savedFeedback) {
-    console.log('no save');
     return;
   }
 
