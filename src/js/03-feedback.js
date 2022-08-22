@@ -20,11 +20,14 @@ function onFormInput(event) {
 
 function onFormSubmit(event) {
   event.preventDefault();
-
-  console.log(feedback);
-  feedback = {};
-  event.target.reset();
-  localStorage.removeItem(LOCALSTORAGE_KEY);
+  if (feedback.email && feedback.message) {
+    console.log(feedback);
+    feedback = {};
+    event.target.reset();
+    localStorage.removeItem(LOCALSTORAGE_KEY);
+  } else {
+    alert('Please, fill all fields');
+  }
 }
 
 function loadSavedMessage() {
